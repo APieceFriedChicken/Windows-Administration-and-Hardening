@@ -1,0 +1,10 @@
+﻿$directory = Get-ChildItem -Directory -Path .
+foreach ($item in $directory) {
+    Write-Host "Item: $($item.FullName)"
+    Get-Acl -Path $item.FullName | Format-List
+}
+$files = Get-ChildItem -File -Path .
+foreach ($item in $files) {
+    Write-Host "Item: $($item.FullName)"
+    Get-Acl -Path $item.FullName | Format-List
+}
